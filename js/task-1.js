@@ -23,3 +23,9 @@ import users from "./users.js";
     console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
     
     // task-5
+    const getUserWithEmail = (users, email) => {
+      // твой код
+    };
+    
+    console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
+    console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
