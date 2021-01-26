@@ -36,3 +36,36 @@ import users from "./users.js";
     // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
 
     // task-7
+    const calculateTotalBalance = users => users.reduce((totalBalance, user) => totalBalance+user.balance,0);
+    
+    console.log(calculateTotalBalance(users)); // 20916
+
+    // task-8
+    const getUsersWithFriend = (users, friendName) =>
+      users
+        .filter(user => user.friends.some(friend => friend === friendName))
+        .map(user => user.name);
+    console.log(getUsersWithFriend(users, "Briana Decker")); // [ 'Sharlene Bush', 'Sheree Anthony' ]
+    console.log(getUsersWithFriend(users, "Goldie Gentry")); // [ 'Elma Head', 'Sheree Anthony' ]
+    
+    
+    
+    // task-9
+    const getNamesSortedByFriendsCount = users =>
+  users
+    .sort((a, b) => a.friends.length - b.friends.length)
+    .map(user => user.name);
+  console.log(getNamesSortedByFriendsCount(users));
+// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
+
+
+// task-10
+const getSortedUniqueSkills = users => 
+users
+  .map(user=>user.skills)
+  .reduce((allSkills, user) => [...allSkills, ...user], [])
+  .filter((elem, index, array) => array.indexOf(elem) === index)
+  .sort((b, a) => b.localeCompare(a, 'en'));
+ 
+console.log(getSortedUniqueSkills(users));
+// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
